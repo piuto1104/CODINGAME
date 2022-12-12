@@ -103,17 +103,23 @@ public:
     }
 
     void nextMove(){
+        // Write an action using cout. DON'T FORGET THE "<< endl"
+        // To debug: cerr << "Debug messages..." << endl;
+
         sort(pellets.begin(), pellets.end(), CompValue);
+        bool flag = true;
         for(int i=0;i<myPacs.size();i++){
-            cout << "MOVE "<< myPacs[i].pac_id << " "<< pellets[i].pos.x << " "<< pellets[i].pos.y << "\n";
-            cerr << "pellet("<<pellets[i].pos.x<<","<<pellets[i].pos.y<<") : "<< pellets[i].value<<"\n";
+            if(flag) flag =false;
+            else cout<< "|";
+            cout << "MOVE "<< myPacs[i].pac_id << " "<< pellets[i].pos.x << " "<< pellets[i].pos.y;
+            //cerr << "pellet("<<pellets[i].pos.x<<","<<pellets[i].pos.y<<") : "<< pellets[i].value<<"\n";
         }
+        cout << "\n";
     }
 };
 
 
-int main()
-{
+int main(){
     PacGame pacGame = PacGame();
 
     // game loop
